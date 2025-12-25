@@ -1,11 +1,11 @@
 <x-layout>
     <h2>Posts.</h2>
-    @foreach ($posts as $post)
-        <ul>
-            <li>
+    <ul>
+        @foreach ($posts as $post)
+            <li class="container my-4 p-4 border rounded-lg hover:shadow-lg transition-shadow duration-300">
                 <a href="/post/{{ $post->id }}">
+                    <h3> {{ $post->title }} </h3>
                     <div>
-                        <h3> {{ $post->title }} </h3>
                         @php
                             $path = $post->content_media ?? null;
                         @endphp
@@ -32,13 +32,14 @@
                                 @break
                             @endswitch
                         @endif
-                        <pre>{{ $post->content }}</pre> <br>
-                        <h4>Author: {{ $post->user->login }} </h4>                        
+                        <p>{{ $post->content }}</p> <br>
                     </div>
+                    <h4>Author: <b>{{ $post->user->login }}</b></h4>
+                    <h5>Category: <b>{{ $post->category->name }}</b></h5>                        
                 </a>
             </li>
-        </ul>
-    @endforeach
+            @endforeach
+    </ul>
     {{ $posts->links() }}
 
 </x-layout>

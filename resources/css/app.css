@@ -16,8 +16,8 @@
 
 body {
   @apply bg-gray-100 text-gray-700;
+  @apply text-gray-700 text-left;
   font-family: "rubik";
-  padding: 20px;
 }
 h1 {
   @apply text-2xl font-bold text-red-500;
@@ -29,13 +29,14 @@ h3 {
   @apply text-lg font-bold my-4;
 }
 ul {
-  @apply my-10;
+  @apply my-4;
 }
 p {
   @apply my-2;
 }
-
-/* header */
+pre {
+  @apply my-1;
+}
 header {
   @apply bg-white;
 
@@ -46,23 +47,20 @@ header {
     @apply mr-auto;
   }
 }
-
-/* form elements */
 form {
   @apply max-w-screen-sm;
 }
 input, select, textarea {
-  @apply block w-full mt-2 mb-4 p-2;
+  @apply block w-full mt-2 mb-4;
   background: white;
   border: 1px solid gray;
 }
 
-/* custom classes */
 .container {
-  @apply max-w-screen-lg mx-auto px-12 py-8;
+  @apply max-w-screen-lg mx-auto;
 }
 .card {
-  @apply bg-white rounded border border-gray-200 px-3 py-3 my-2 flex justify-between items-center;
+  @apply bg-white rounded border border-gray-200 flex flex-col md:flex-row justify-between items-start;
 }
 .highlight {
   @apply border-l-4 border-l-red-500;
@@ -76,3 +74,4 @@ input, select, textarea {
 .muted {
     color: #6b7280; 
 }
+

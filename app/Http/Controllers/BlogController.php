@@ -15,6 +15,7 @@ class BlogController extends Controller
             'title' => 'required|string|min:5|max:50',
             'content_media' => 'nullable|file|mimes:jpg,jpeg,png,mp4,mp3|max:2097152',
             'content' => 'required|string|min:10|max:10000',
+            'category_id' => 'required|exists:categories,id',
         ]);
 
         if ($request->hasFile('content_media')) {

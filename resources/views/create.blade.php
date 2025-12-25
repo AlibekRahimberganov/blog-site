@@ -9,6 +9,13 @@
         <input type="file" id="content_media" name="content_media" accept="image/*,video/*,audio/*"><br>
         <label for="content">Enter blog body:</label>
         <textarea id="content" name="content" placeholder="Blog Body" rows="15" maxlength="10000" required>{{ old('content') }}</textarea><br>
+        <select name="category_id">
+            @foreach ($categories as $category)
+                <option value="{{ $category->id }}">
+                    {{ $category->name }}
+                </option>
+            @endforeach
+        </select>
         <button class="btn" type="submit">Create Post</button>
 
         @if($errors->any())
