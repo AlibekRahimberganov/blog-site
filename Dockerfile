@@ -12,8 +12,6 @@ RUN npm install
 
 COPY . .
 RUN npm run build
-COPY . .
-RUN npm run build
 
 FROM php:8.2-fpm
 WORKDIR /var/www/html

@@ -14,7 +14,8 @@ class PageController extends Controller
     public function create()
     {
         /* Routing to create post page */
-        return view('create');
+        $categories = \App\Models\Category::orderBy('name')->get();
+        return view('create', compact('categories'));
     }
     public function show_specific_post(Posts $post)
     {

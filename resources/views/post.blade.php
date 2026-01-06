@@ -26,8 +26,9 @@
             @break
         @endswitch
     @endif
-    <pre>{{ $post->content }}</pre>
-    <a href="{{ $post->author }}">{{ $post->author }}</a>
+    <p>{{ $post->content }}</p>
+    <h4>Author: <b>{{ $post->user->login }}</b></h4>
+    <h5>Category: <b>{{ $post->category->name }}</b></h5>
 
     @auth
         @if (Auth::user()->id == $post->user_id)

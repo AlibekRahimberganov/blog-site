@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('title', 100);
             $table->text('content');
             $table->string('content_media', 100)->nullable();
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->date("published_at");
             $table->date("edited_at");
             $table->dateTime("deleted_at")->nullable();

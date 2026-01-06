@@ -13,16 +13,18 @@ class Posts extends Model
         'title',
         'content',
         'content_media',
+        'category_id',
         'published_at',
         'edited_at',
-        'deleted_at',
         'user_id'
     ];
-
+    function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
     public const CREATED_AT = 'created_at';
     public const UPDATED_AT = 'edited_at';
-    public const DELETED_AT = 'deleted_at';
-
+ 
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
