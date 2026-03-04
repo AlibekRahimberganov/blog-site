@@ -21,6 +21,10 @@ A blog application built with Laravel and Docker, featuring user authentication,
 ## Quick Start
 
 ### 1. Clone and Setup
+Clone the project:
+```bash
+git clone git@github.com:AlibekRahimberganov/blog-site.git
+```
 
 Copy environment configuration:
 ```bash
