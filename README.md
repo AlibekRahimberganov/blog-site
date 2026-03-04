@@ -1,118 +1,114 @@
-# Laravel Docker Blog Site
+# Blogsite - Laravel Blog Platform with Docker
 
-## About the Project
+A blog application built with Laravel and Docker, featuring user authentication, post management, and category organization.
 
-This is a simple blog website built with Laravel and fully containerized using Docker. The project is intended for learning and small-scale blogging purposes.
+## Features
 
-### Features
+- **User Authentication**: Register, login, and user profile management
+- **Post Management**: Create, read, update, and delete blog posts
+- **Categories**: Organize posts by categories
+- **Responsive Design**: Mobile-friendly interface
+- **Database Seeding**: Pre-populated sample data
+- **Docker**: Fully containerized application for easy deployment
 
-*  Create and publish blog posts
-*  Simple and clean blog structure
-*  Dockerized environment (PHP, Nginx, Node, MySQL)
+## Requirements
 
----
+- Docker & Docker Compose
+- PHP 8.2+ (when running locally without Docker)
+- Composer
+- Node.js & npm
 
-## Tech Stack
+## Quick Start
 
-* **Backend:** Laravel
-* **Frontend:** Blade, TailwindCSS, Vite
-* **Database:** MySQL
-* **Web Server:** Nginx
-* **Containerization:** Docker & Docker Compose
+### 1. Clone and Setup
 
----
-
-## How to Run the Project with Docker
-
-### Requirements
-
-Make sure you have the following installed on your system:
-
-* Docker
-* Docker Compose
-
-You can check with:
-
-```bash
-docker --version
-docker compose version
-```
-
----
-
-### lone the Repository
-
-```bash
-git clone https://github.com/your-username/laravel-docker-blog-site.git
-cd laravel-docker-blog-site
-```
-
----
-
-### Environment Setup
-
-Copy the example environment file:
-
+Copy environment configuration:
 ```bash
 cp .env.example .env
 ```
 
-Update database credentials in `.env` if needed (should match `docker-compose.yml`).
-
----
-
-### Build and Start Containers
-
+Install PHP dependencies:
 ```bash
-docker compose up --build
+composer install
 ```
 
----
-
-### Application Key & Migrations
-
+Install JavaScript dependencies:
 ```bash
-php artisan key:generate
+npm install
+```
+
+### 2. Database Setup
+
+Run migrations:
+```bash
 php artisan migrate
 ```
 
----
-
-## Access the Application
-
-Open your browser and visit:
-
-```
-http://localhost
-```
-
-(or the port defined in `docker-compose.yml`)
-
----
-
-## Useful Docker Commands
-
-Stop containers:
-
+Seed the database with sample data:
 ```bash
-docker compose down
+php artisan db:seed
 ```
 
-Rebuild containers:
+### 3. Build Assets
 
+Development build:
 ```bash
-docker compose up --build
+npm run dev
 ```
 
----
+Production build:
+```bash
+npm run build
+```
 
-## Vite not working:
-  Make sure `npm run dev` is running inside the container.
+### 4. Run the Application
 
----
+With Docker:
+```bash
+docker-compose up -d
+```
 
-## Notes
+Without Docker:
+```bash
+php artisan serve
+```
 
-* This project is for **learning and development purposes**.
+The application will be available at `http://localhost:9001`
 
----
+## 📁 Project Structure
+
+```
+├── app/
+│   ├── Models/           # Database models (User, Posts, Category)
+│   └── Http/Controllers/ # Application controllers
+├── database/
+│   ├── migrations/       # Database migrations
+│   ├── seeders/          # Data seeders
+│   └── factories/        # Model factories for testing
+├── resources/
+│   ├── views/            # Blade templates
+│   ├── css/              # Stylesheets
+├── routes/               # Route definitions
+```
+
+## 🔧 Configuration
+
+Key configuration files:
+- `config/app.php` - Application settings
+- `config/database.php` - Database connection
+- `docker-compose.yaml` - Docker services configuration
+
+## 🗄️ Database
+
+The application uses the following main tables:
+- **users** - User accounts
+- **posts** - Blog posts
+- **categories** - Post categories
+
+## 🛠️ Tech Stack
+
+- **Backend**: Laravel 11
+- **Frontend**: Blade, Vite
+- **Database**: Sqlite
+- **Containerization**: Docker & Docker Compose
+- **Testing**: PHPUnit
